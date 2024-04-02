@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react"
 import { GameContext } from "../context/GameContext"
 import ResultGuessPeg from "../components/ResultGuessPeg"
-import ButtonLarge from "../components/ButtonLarge"
+import NavigationLink from "../components/NavigationLink"
 import { useNavigate } from "react-router-dom"
 
 export default function Result(): JSX.Element {
@@ -37,7 +37,13 @@ export default function Result(): JSX.Element {
           <ResultGuessPeg data={allGuessesArray[0]} />
         </div>
       )}
-      <ButtonLarge textContent="Play again" handleClick={startNewGame} />
+      <NavigationLink
+        textContent="Play again"
+        path="/game"
+        handleClick={startNewGame}
+      />
     </main>
-  ) : <>{ null }</>
+  ) : (
+    <>{null}</>
+  )
 }

@@ -3,7 +3,6 @@ import { GameContext } from "../context/GameContext"
 import Counter from "../components/Counter"
 import ColorOptions from "../components/ColorOptions"
 import GuessesContainer from "../components/GuessesContainer"
-import FeedbackExplained from "../components/FeedbackExplained"
 import { useNavigate } from "react-router-dom"
 
 export default function Game(): JSX.Element {
@@ -26,7 +25,6 @@ export default function Game(): JSX.Element {
         <ColorOptions />
         <GuessesContainer />
       </div>
-      <FeedbackExplained />
     </main>
   )
 }

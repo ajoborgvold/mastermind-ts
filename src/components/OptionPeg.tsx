@@ -3,13 +3,15 @@ import { colorData } from "../data/colorData"
 import { GameContext } from "../context/GameContext"
 
 export default function OptionPeg(): JSX.Element {
-  const { selectColor } = useContext(GameContext)
+  const { selectColor, selectedGuess } = useContext(GameContext)
 
   const colorEl = colorData.map((color, index) => {
+    const selectedColorStyle =
+      selectedGuess.color?.name === color.name ? "bg-stone-300 text-stone-950" : ""
     return (
       <button
         key={index}
-        className="flex gap-2 items-center p-2 hover:bg-stone-300 focus:bg-stone-300 hover:text-stone-950 focus:text-stone-950 rounded-md"
+        className={`flex gap-2 items-center p-2 hover:bg-stone-300 focus:bg-stone-300 hover:text-stone-950 focus:text-stone-950 rounded-md ${selectedColorStyle}`}
         onClick={() => selectColor(color.name)}
         aria-label={color.name}
       >

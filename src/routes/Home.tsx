@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { GameContext } from "../context/GameContext"
-import ButtonLarge from "../components/ButtonLarge"
+import NavigationLink from "../components/NavigationLink"
 import { emptyPeg } from "../data/colorData"
 
 export default function Home(): JSX.Element {
@@ -26,10 +26,14 @@ export default function Home(): JSX.Element {
         </div>
         <p className="sm:text-lg md:text-xl">You'll get 12 attempts</p>
       </div>
-      <ButtonLarge
-        textContent="Start game!"
-        handleClick={() => setIsGameOn(true)}
-      />
+      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 md:gap-16 lg:gap-20 xl:gap-32">
+        <NavigationLink
+          textContent="Start game!"
+          path="/game"
+          handleClick={() => setIsGameOn(true)}
+        />
+        <NavigationLink textContent="Read the rules" path="/rules" />
+      </div>
     </div>
   )
 }

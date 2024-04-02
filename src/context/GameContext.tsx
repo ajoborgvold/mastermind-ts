@@ -7,6 +7,7 @@ const GameContext = createContext<ContextData>({
   setIsGameOn: () => {},
   codeArray: [],
   selectColor: () => {},
+  selectedGuess: { color: null, position: null },
   deleteLatestGuess: () => {},
   handlePegClick: () => {},
   checkLatestGuess: () => {},
@@ -18,11 +19,16 @@ const GameContext = createContext<ContextData>({
 })
 
 function GameContextProvider({ children }: { children: ReactNode }) {
+  const initialGuessArray = Array(4).fill(emptyPeg)
+
   const [isGameOn, setIsGameOn] = useState(false)
   const [codeArray, setCodeArray] = useState<ColorData[]>([])
-  const [latestGuessArray, setLatestGuessArray] = useState<ColorData[]>(
-    Array(4).fill(emptyPeg)
-  )
+  const [latestGuessArray, setLatestGuessArray] =
+    useState<ColorData[]>(initialGuessArray)
+  const [selectedGuess, setSelectedGuess] = useState<{
+    color: ColorData | null
+    position: number | null
+  }>({ color: null, position: null })
   const [allGuessesArray, setAllGuessesArray] = useState<ColorData[][]>([])
   const [hasPlayerWon, setHasPlayerWon] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
@@ -43,6 +49,15 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }, [isGameOn])
 
   useEffect(() => {
+    if (selectedGuess.color !== null && selectedGuess.position !== null) {
+      const updatedGuessArray = [...latestGuessArray]
+      updatedGuessArray[selectedGuess.position] = selectedGuess.color
+      setLatestGuessArray(updatedGuessArray)
+      setSelectedGuess({ color: null, position: null })
+    }
+  }, [selectedGuess])
+
+  useEffect(() => {
     if (allGuessesArray.length) {
       const isCodeCracked = allGuessesArray[0].every(
         (guess) => guess.feedback?.name === "index match"
@@ -51,11 +66,9 @@ function GameContextProvider({ children }: { children: ReactNode }) {
       if (allGuessesArray.length === 12 && !isCodeCracked) {
         setHasPlayerWon(false)
         setIsGameOver(true)
-        setIsGameOn(false)
       } else if (allGuessesArray.length <= 12 && isCodeCracked) {
         setHasPlayerWon(true)
         setIsGameOver(true)
-        setIsGameOn(false)
       }
     }
   }, [allGuessesArray])
@@ -67,13 +80,18 @@ function GameContextProvider({ children }: { children: ReactNode }) {
     )
 
     if (targetColor && !allColorsSelected) {
-      const firstNoValueIndex = latestGuessArray.findIndex(
-        (color) => color.name === "?"
-      )
+      setSelectedGuess((prev) => ({ ...prev, color: targetColor }))
+    }
+  }
 
-      const updatedGuessArray = [...latestGuessArray]
-      updatedGuessArray[firstNoValueIndex] = targetColor
+  function handlePegClick(colorName: string, index: number) {
+    const updatedGuessArray = [...latestGuessArray]
+
+    if (colorName !== "?") {
+      updatedGuessArray[index] = emptyPeg
       setLatestGuessArray(updatedGuessArray)
+    } else {
+      setSelectedGuess((prev) => ({ ...prev, position: index }))
     }
   }
 
@@ -96,12 +114,6 @@ function GameContextProvider({ children }: { children: ReactNode }) {
       }
     }
     return -1
-  }
-
-  function handlePegClick(index: number) {
-    const updatedGuessArray = [...latestGuessArray]
-    updatedGuessArray[index] = emptyPeg
-    setLatestGuessArray(updatedGuessArray)
   }
 
   function checkLatestGuess() {
@@ -154,7 +166,7 @@ function GameContextProvider({ children }: { children: ReactNode }) {
         updatedGuessArray,
         ...prevAllGuessesArray,
       ])
-      setLatestGuessArray(Array(4).fill(emptyPeg))
+      setLatestGuessArray(initialGuessArray)
     }
   }
 
@@ -172,6 +184,7 @@ function GameContextProvider({ children }: { children: ReactNode }) {
         setIsGameOn,
         codeArray,
         selectColor,
+        selectedGuess,
         deleteLatestGuess,
         handlePegClick,
         checkLatestGuess,

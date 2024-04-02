@@ -15,8 +15,11 @@ interface ContextData {
   setIsGameOn: Dispatch<SetStateAction<boolean>>
   codeArray: ColorData[]
   selectColor: (colorName: string) => void
+  selectedGuess: {color: (ColorData | null), position: (number | null)}
+  // selectedColor: ColorData
   deleteLatestGuess: () => void
-  handlePegClick: (index: number) => void
+  handlePegClick: (colorName: string, index: number) => void
+  // selectedPosition: (number | null)
   checkLatestGuess: () => void
   latestGuessArray: ColorData[]
   allGuessesArray: ColorData[][]
