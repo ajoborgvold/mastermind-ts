@@ -1,14 +1,6 @@
-import { MouseEventHandler, ReactNode } from "react"
+import { ButtonSmallProps } from "../interfaces/interfaces"
 
-export default function ButtonSmall({
-  handleClick,
-  aria,
-  children,
-}: {
-  handleClick: MouseEventHandler
-  aria: string
-  children: ReactNode
-}): JSX.Element {
+export default function ButtonSmall({ handleClick, aria, children }: ButtonSmallProps): JSX.Element {
   return (
     <button
       className="hover:bg-stone-50 hover:text-stone-950 focus:bg-stone-50 focus:text-stone-950 sm:text-xl font-semibold py-1 px-3 sm:py-2 md:px-4 lg:px-5 border border-stone-50 rounded-lg"

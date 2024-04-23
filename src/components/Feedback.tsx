@@ -22,15 +22,15 @@ export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
         : "No color match"
 
     return (
-      <div
+      <li
         key={index}
         className={`h-4 w-4 sm:h-5 sm:w-5 text-xs sm:text-sm flex justify-center items-center border border-stone-950 rounded-full ${style}`}
-        aria-label={aria}
+        aria-label={`${aria}.`}
       >
         {textContent}
-      </div>
+      </li>
     )
   })
 
-  return <>{feedbackEl}</>
+  return <ul className="flex justify-center gap-1 flex-wrap">{feedbackEl}</ul>
 }

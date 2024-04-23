@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, MouseEventHandler, SetStateAction, ReactNode } from "react"
 
 interface ColorData {
   name: string
@@ -16,16 +16,35 @@ interface ContextData {
   codeArray: ColorData[]
   selectColor: (colorName: string) => void
   selectedGuess: {color: (ColorData | null), position: (number | null)}
-  // selectedColor: ColorData
   deleteLatestGuess: () => void
   handlePegClick: (colorName: string, index: number) => void
-  // selectedPosition: (number | null)
   checkLatestGuess: () => void
   latestGuessArray: ColorData[]
   allGuessesArray: ColorData[][]
-  isGameOver: boolean
   hasPlayerWon: boolean
   startNewGame: () => void
 }
 
-export type { ColorData, ContextData }
+interface ButtonLargeProps {
+  handleClick: MouseEventHandler<HTMLButtonElement>
+  textContent: string
+}
+
+interface ButtonSmallProps {
+  handleClick: MouseEventHandler<HTMLButtonElement>
+  aria: string
+  children: ReactNode
+}
+
+interface ButtonPegProps {
+  data: ColorData
+  index: number
+}
+
+interface LinkProps {
+  textContent: string
+  path: string
+  handleClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+export type { ColorData, ContextData, ButtonLargeProps, ButtonSmallProps, ButtonPegProps, LinkProps }

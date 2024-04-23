@@ -1,28 +1,49 @@
 import { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { GameContext } from "../context/GameContext"
 import Counter from "../components/Counter"
 import ColorOptions from "../components/ColorOptions"
 import GuessesContainer from "../components/GuessesContainer"
-import { useNavigate } from "react-router-dom"
+import ResultGuessPeg from "../components/ResultGuessPeg"
+import ButtonLarge from "../components/ButtonLarge"
 
 export default function Game(): JSX.Element {
-  const { isGameOn, isGameOver } = useContext(GameContext)
+  const { isGameOn, codeArray, hasPlayerWon, startNewGame } =
+    useContext(GameContext)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isGameOn) {
+    if (!codeArray.length) {
       navigate("/")
     }
-    if (isGameOver) {
-      navigate("/result")
-    }
-  }, [isGameOn, isGameOver, navigate])
+  }, [codeArray, navigate])
 
   return (
     <main className="w-full h-full flex-1 flex flex-col items-center gap-8 p-4 lg:p-6">
       <Counter />
-      <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 flex flex-col items-center gap-10">
+      {isGameOn ? (
         <ColorOptions />
+      ) : hasPlayerWon ? (
+        <div className="flex flex-col items-center gap-3 sm:gap-4 bg-green-950 mb-4 px-4 sm:px-8 py-4 border border-stone-950 shadow-[0_0_30px] rounded-md">
+          <p className="text-xl sm:text-2xl tracking-wider">Congratulations!</p>
+          <p className="text-base sm:text-xl tracking-wider">
+            You cracked the code!
+          </p>
+          <ResultGuessPeg data={codeArray} />
+        </div>
+      ) : (
+        <div className="flex flex-col items-center gap-3 sm:gap-4 bg-rose-950 mb-4 px-4 sm:px-8 py-4 border border-stone-950 shadow-[0_0_30px] rounded-md">
+          <p className="text-xl sm:text-2xl tracking-wider">Too bad!</p>
+          <p className="text-base sm:text-xl tracking-wider">
+            You failed to crack this code:
+          </p>
+          <ResultGuessPeg data={codeArray} />
+        </div>
+      )}
+      {!isGameOn && (
+        <ButtonLarge handleClick={startNewGame} textContent="Start new game" />
+      )}
+      <div className="flex flex-col items-center gap-10">
         <GuessesContainer />
       </div>
     </main>

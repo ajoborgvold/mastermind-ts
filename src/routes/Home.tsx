@@ -4,11 +4,11 @@ import NavigationLink from "../components/NavigationLink"
 import { emptyPeg } from "../data/colorData"
 
 export default function Home(): JSX.Element {
-  const { setIsGameOn } = useContext(GameContext)
+  const { startNewGame } = useContext(GameContext)
   const secretCodeArray = Array(4).fill(emptyPeg)
 
   return (
-    <div className="h-full flex-1 flex flex-col justify-center items-center gap-10 lg:gap-20">
+    <main className="h-full flex-1 flex flex-col justify-center items-center gap-10 lg:gap-20">
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-widest uppercase">
         Mastermind
       </h1>
@@ -30,10 +30,10 @@ export default function Home(): JSX.Element {
         <NavigationLink
           textContent="Start game!"
           path="/game"
-          handleClick={() => setIsGameOn(true)}
+          handleClick={startNewGame}
         />
-        <NavigationLink textContent="Read the rules" path="/rules" />
+        <NavigationLink textContent="How to play" path="/rules" />
       </div>
-    </div>
+    </main>
   )
 }

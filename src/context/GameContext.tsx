@@ -13,7 +13,6 @@ const GameContext = createContext<ContextData>({
   checkLatestGuess: () => {},
   latestGuessArray: [],
   allGuessesArray: [],
-  isGameOver: false,
   hasPlayerWon: false,
   startNewGame: () => {},
 })
@@ -31,23 +30,7 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }>({ color: null, position: null })
   const [allGuessesArray, setAllGuessesArray] = useState<ColorData[][]>([])
   const [hasPlayerWon, setHasPlayerWon] = useState(false)
-  const [isGameOver, setIsGameOver] = useState(false)
-
-  useEffect(() => {
-    if (isGameOn) {
-      const randomColorArray = []
-      for (let i = 0; i < 4; i++) {
-        const num = Math.floor(Math.random() * 6)
-        const color = colorData[num]
-        if (color) {
-          randomColorArray.push(color)
-        }
-      }
-
-      setCodeArray(randomColorArray)
-    }
-  }, [isGameOn])
-
+  
   useEffect(() => {
     if (selectedGuess.color !== null && selectedGuess.position !== null) {
       const updatedGuessArray = [...latestGuessArray]
@@ -64,14 +47,27 @@ function GameContextProvider({ children }: { children: ReactNode }) {
       )
 
       if (allGuessesArray.length === 12 && !isCodeCracked) {
+        setIsGameOn(false)
         setHasPlayerWon(false)
-        setIsGameOver(true)
       } else if (allGuessesArray.length <= 12 && isCodeCracked) {
+        setIsGameOn(false)
         setHasPlayerWon(true)
-        setIsGameOver(true)
       }
     }
   }, [allGuessesArray])
+
+  function getSecretColorCode() {
+    const randomColorArray = []
+    for (let i = 0; i < 4; i++) {
+      const num = Math.floor(Math.random() * 6)
+      const color = colorData[num]
+      if (color) {
+        randomColorArray.push(color)
+      }
+    }
+
+    setCodeArray(randomColorArray)
+  }
 
   function selectColor(colorName: string) {
     const targetColor = colorData.find((color) => color.name === colorName)
@@ -90,34 +86,28 @@ function GameContextProvider({ children }: { children: ReactNode }) {
     if (colorName !== "?") {
       updatedGuessArray[index] = emptyPeg
       setLatestGuessArray(updatedGuessArray)
+    } else if (selectedGuess.position === index) {
+      setSelectedGuess(prev => ({...prev, position: -1}))
     } else {
       setSelectedGuess((prev) => ({ ...prev, position: index }))
     }
   }
 
   function deleteLatestGuess() {
-    if (latestGuessArray.length) {
-      const updatedGuessArray = [...latestGuessArray]
-      const lastNonEmptyIndex = findLastNonEmptyIndex(updatedGuessArray)
-
-      if (lastNonEmptyIndex !== -1) {
-        updatedGuessArray[lastNonEmptyIndex] = emptyPeg
-        setLatestGuessArray(updatedGuessArray)
-      }
-    }
-  }
-
-  function findLastNonEmptyIndex(array: ColorData[]) {
-    for (let i = array.length - 1; i >= 0; i--) {
-      if (array[i].name !== "?") {
-        return i
-      }
-    }
-    return -1
+    setLatestGuessArray(initialGuessArray)
   }
 
   function checkLatestGuess() {
-    if (latestGuessArray.length === 4) {
+    const isAttemptComplete = latestGuessArray.every(color => color.name !== "?")
+
+    /**
+    * TODO: Create user message, telling the user to select four colors to activate the button.
+    **/
+    if (!isAttemptComplete) {
+      console.log("Please select four colors.")
+    }
+
+    if (isAttemptComplete) {
       const updatedGuessArray = [...latestGuessArray]
       const updatedCodeArray = [...codeArray]
 
@@ -172,9 +162,9 @@ function GameContextProvider({ children }: { children: ReactNode }) {
 
   function startNewGame() {
     setHasPlayerWon(false)
-    setIsGameOver(false)
     setAllGuessesArray([])
     setIsGameOn(true)
+    getSecretColorCode()
   }
 
   return (
@@ -190,7 +180,6 @@ function GameContextProvider({ children }: { children: ReactNode }) {
         checkLatestGuess,
         latestGuessArray,
         allGuessesArray,
-        isGameOver,
         hasPlayerWon,
         startNewGame,
       }}
