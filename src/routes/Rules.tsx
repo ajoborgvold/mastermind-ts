@@ -15,7 +15,7 @@ export default function Rules(): JSX.Element {
         </span>
       </h1>
       <section className="md:w-3/4 lg:w-2/3 xl:w-1/2 flex flex-col items-center gap-12 leading-loose">
-        <div className="flex flex-col gap-4 bg-stone-900 p-6 rounded">
+        <div className="flex flex-col gap-4 bg-stone-900 p-4 sm:p-6 rounded">
           <h2 className="text-xl sm:text-2xl">Overview</h2>
           <p>
             When you start the game, the computer will generate a random code
@@ -30,7 +30,7 @@ export default function Rules(): JSX.Element {
             always contain exactly four colors.
           </p>
         </div>
-        <div className="flex flex-col gap-4 bg-stone-900 p-6 rounded">
+        <div className="flex flex-col gap-4 bg-stone-900 p-4 sm:p-6 rounded">
           <h2 className="text-xl sm:text-2xl">The technical stuff</h2>
           <p>
             To select a color and add it to your current attempt, just click the

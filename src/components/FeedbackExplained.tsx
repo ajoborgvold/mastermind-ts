@@ -12,7 +12,7 @@ export default function FeedbackExplained(): JSX.Element {
         <div className="w-4 h-4 lg:w-5 lg:h-5 flex justify-center items-center bg-white text-black text-xs lg:text-sm border border-stone-950 rounded-full">
           C
         </div>
-        <p>= Color correct, position not correct</p>
+        <p>= Color correct, position incorrect</p>
       </div>
       <div className="flex items-center gap-2">
         <div className="w-4 h-4 lg:w-5 lg:h-5 flex justify-center items-center text-xs lg:text-sm border border-stone-50 rounded-full">
