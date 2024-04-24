@@ -10,11 +10,12 @@ export default function Rules(): JSX.Element {
 
   return (
     <div className="flex-1 flex flex-col">
-      {codeArray.length ? (
-        <Header flexStyle="justify-end">
-          <LinkSmall textContent="Back to game" path="/game" />
+      <Header flexStyle="justify-end">
+        {codeArray.length ? 
+          <LinkSmall textContent="Back to game" path="/game" /> :
+          <LinkSmall textContent="Start game" path="/game" handleClick={startNewGame}/>
+        }
         </Header>
-      ) : null}
       <main className="flex flex-col items-center gap-8 mt-2 mb-8 p-4 lg:p-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold tracking-wider">
           How to play a game of<br></br>
