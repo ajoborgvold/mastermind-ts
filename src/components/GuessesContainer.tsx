@@ -8,7 +8,7 @@ export default function GuessesContainer(): JSX.Element {
 
   return (
     <ul className="w-full flex flex-col gap-2">
-      {isGameOn && <CurrentAttempt /> }
+      {isGameOn && <CurrentAttempt />}
       {allGuessesArray.length > 0 && <PreviousAttempts />}
     </ul>
   )

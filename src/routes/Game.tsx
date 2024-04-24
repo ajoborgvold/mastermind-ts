@@ -26,7 +26,7 @@ export default function Game(): JSX.Element {
         <Counter />
         <LinkSmall textContent="How to play" path="/rules" />
       </Header>
-      <main className="flex flex-col items-center gap-8 p-4 lg:p-6">
+      <main className="my-6 flex flex-col items-center gap-8 p-4 lg:p-6">
         {isGameOn ? (
           <ColorOptions />
         ) : hasPlayerWon ? (
