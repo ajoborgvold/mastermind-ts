@@ -13,8 +13,8 @@ export default function Rules(): JSX.Element {
       <Header flexStyle="justify-end">
         <LinkSmall textContent="Back to game" path="/game" />
       </Header>
-      <main className="flex flex-col items-center gap-8 p-4 lg:p-6">
-        <h1 className="my-6 text-2xl sm:text-3xl md:text-4xl text-center font-semibold tracking-wider">
+      <main className="flex flex-col items-center gap-8 mt-2 mb-8 p-4 lg:p-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold tracking-wider">
           How to play a game of<br></br>
           <span className="inline-block mt-4 text-amber-300 uppercase tracking-widest">
             Mastermind

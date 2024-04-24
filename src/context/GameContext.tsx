@@ -46,10 +46,10 @@ function GameContextProvider({ children }: { children: ReactNode }) {
         (guess) => guess.feedback?.name === "index match"
       )
 
-      if (allGuessesArray.length === 12 && !isCodeCracked) {
+      if (allGuessesArray.length === 1 && !isCodeCracked) {
         setIsGameOn(false)
         setHasPlayerWon(false)
-      } else if (allGuessesArray.length <= 12 && isCodeCracked) {
+      } else if (allGuessesArray.length <= 1 && isCodeCracked) {
         setIsGameOn(false)
         setHasPlayerWon(true)
       }
