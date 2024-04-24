@@ -7,7 +7,7 @@ export default function OptionPeg(): JSX.Element {
 
   const colorEl = colorData.map((color, index) => {
     const selectedColorStyle =
-      selectedGuess.color?.name === color.name ? "bg-stone-300 text-stone-950" : ""
+      selectedGuess.color?.name === color.name ? "bg-amber-100 text-stone-950" : ""
     
     return (
       <li key={index}>
