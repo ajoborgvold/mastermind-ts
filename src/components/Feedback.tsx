@@ -9,10 +9,10 @@ export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
 
     const style =
       item.feedback?.code === 1
-        ? "bg-black text-white"
+        ? "bg-black text-white border-stone-950"
         : item.feedback?.code === 2
-        ? "bg-white text-black"
-        : "bg-stone-400 text-black"
+        ? "bg-white text-black border-stone-950"
+        : "text-amber-100 border-amber-100"
 
     const aria =
       item.feedback?.code === 1
@@ -24,7 +24,7 @@ export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
     return (
       <li
         key={index}
-        className={`h-4 w-4 sm:h-5 sm:w-5 text-xs sm:text-sm flex justify-center items-center border border-stone-950 rounded-full ${style}`}
+        className={`h-4 w-4 sm:h-5 sm:w-5 text-xs sm:text-sm flex justify-center items-center border rounded-full ${style}`}
         aria-label={`${aria}.`}
       >
         {textContent}
@@ -32,5 +32,5 @@ export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
     )
   })
 
-  return <ul className="flex justify-center gap-1 flex-wrap">{feedbackEl}</ul>
+  return <ul className="grid grid-cols-2 gap-y-1 sm:gap-1">{feedbackEl}</ul>
 }

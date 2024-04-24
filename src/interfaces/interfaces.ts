@@ -25,6 +25,22 @@ interface ContextData {
   startNewGame: () => void
 }
 
+interface HeaderProps {
+  children: ReactNode
+  flexStyle: string
+}
+
+interface ResultCardProps {
+  cardStyle: string
+  p1: string
+  p2: string
+}
+
+interface ColorPegProps {
+  data: ColorData[]
+  pegStyle?: string
+}
+
 interface ButtonLargeProps {
   handleClick: MouseEventHandler<HTMLButtonElement>
   textContent: string
@@ -47,4 +63,4 @@ interface LinkProps {
   handleClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-export type { ColorData, ContextData, ButtonLargeProps, ButtonSmallProps, ButtonPegProps, LinkProps }
+export type { ColorData, ContextData, HeaderProps, ResultCardProps, ColorPegProps, ButtonLargeProps, ButtonSmallProps, ButtonPegProps, LinkProps }

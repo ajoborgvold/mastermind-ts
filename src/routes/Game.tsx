@@ -4,11 +4,13 @@ import { GameContext } from "../context/GameContext"
 import Counter from "../components/Counter"
 import ColorOptions from "../components/ColorOptions"
 import GuessesContainer from "../components/GuessesContainer"
-import ResultGuessPeg from "../components/ResultGuessPeg"
 import ButtonLarge from "../components/ButtonLarge"
+import LinkSmall from "../components/LinkSmall"
+import Header from "../components/Header"
+import ResultCard from "../components/ResultCard"
 
 export default function Game(): JSX.Element {
-  const { isGameOn, codeArray, hasPlayerWon, startNewGame } =
+  const { isGameOn, codeArray, hasPlayerWon, startNewGame, allGuessesArray } =
     useContext(GameContext)
   const navigate = useNavigate()
 
@@ -19,33 +21,37 @@ export default function Game(): JSX.Element {
   }, [codeArray, navigate])
 
   return (
-    <main className="w-full h-full flex-1 flex flex-col items-center gap-8 p-4 lg:p-6">
-      <Counter />
-      {isGameOn ? (
-        <ColorOptions />
-      ) : hasPlayerWon ? (
-        <div className="flex flex-col items-center gap-3 sm:gap-4 bg-green-950 mb-4 px-4 sm:px-8 py-4 border border-stone-950 shadow-[0_0_30px] rounded-md">
-          <p className="text-xl sm:text-2xl tracking-wider">Congratulations!</p>
-          <p className="text-base sm:text-xl tracking-wider">
-            You cracked the code!
-          </p>
-          <ResultGuessPeg data={codeArray} />
+    <div className="w-full h-full flex-1 flex flex-col">
+      <Header flexStyle="justify-between">
+        <Counter />
+        <LinkSmall textContent="How to play" path="/rules" />
+      </Header>
+      <main className="flex flex-col items-center gap-8 p-4 lg:p-6">
+        {isGameOn ? (
+          <ColorOptions />
+        ) : hasPlayerWon ? (
+          <ResultCard
+            cardStyle="bg-teal-800"
+            p1="Congratulations!"
+            p2={`You cracked the code in ${allGuessesArray.length} attempts!`}
+          />
+        ) : (
+          <ResultCard
+            cardStyle="bg-rose-900"
+            p1="Too bad!"
+            p2="You failed to crack this code:"
+          />
+        )}
+        {!isGameOn && (
+          <ButtonLarge
+            handleClick={startNewGame}
+            textContent="Start new game"
+          />
+        )}
+        <div className="flex flex-col items-center gap-10">
+          <GuessesContainer />
         </div>
-      ) : (
-        <div className="flex flex-col items-center gap-3 sm:gap-4 bg-rose-950 mb-4 px-4 sm:px-8 py-4 border border-stone-950 shadow-[0_0_30px] rounded-md">
-          <p className="text-xl sm:text-2xl tracking-wider">Too bad!</p>
-          <p className="text-base sm:text-xl tracking-wider">
-            You failed to crack this code:
-          </p>
-          <ResultGuessPeg data={codeArray} />
-        </div>
-      )}
-      {!isGameOn && (
-        <ButtonLarge handleClick={startNewGame} textContent="Start new game" />
-      )}
-      <div className="flex flex-col items-center gap-10">
-        <GuessesContainer />
-      </div>
-    </main>
+      </main>
+    </div>
   )
 }

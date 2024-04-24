@@ -21,13 +21,12 @@ export default function ButtonPeg({ data, index }: ButtonPegProps): JSX.Element 
     }
   }, [allGuessesArray])
 
-  const selectedPositionStyle = selectedGuess.position === index ? "bg-stone-300" : ""
+  const selectedPositionStyle = selectedGuess.position === index ? "bg-amber-100" : ""
 
   return (
-    <li>
+    <li key={index}>
       <button
-        key={index}
-        className={`flex items-center p-1 sm:p-2 rounded-sm hover:bg-stone-300 ${selectedPositionStyle}`}
+        className={`flex items-center p-1 sm:p-2 rounded-sm hover:bg-amber-100 focus:bg-amber-100 ${selectedPositionStyle}`}
         onClick={() => handlePegClick(data.name, index)}
         aria-label={ariaLabel}
         aria-pressed={selectedGuess.position === index}
@@ -35,7 +34,7 @@ export default function ButtonPeg({ data, index }: ButtonPegProps): JSX.Element 
         ref={index === 0 ? ref : null}
       >
         <div
-          className={`${data.bgColor} ${data.textColor} w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center text-sm sm:text-base font-bold rounded-full border border-black`}
+          className={`${data.bgColor} ${data.textColor} w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center text-sm sm:text-base font-bold rounded-full border ${data.name !== "?" ? "border-black" : "border-amber-100"}`}
         >
           {data.name ? data.name[0].toUpperCase() : "?"}
         </div>
