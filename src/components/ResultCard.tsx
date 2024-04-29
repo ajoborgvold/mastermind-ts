@@ -18,7 +18,7 @@ const ResultCard: FC = () => {
 
   return (
     <div
-      className={`my-6 flex flex-col items-center gap-3 sm:gap-4 ${cardStyle} mb-4 px-4 sm:px-8 py-4 border-2 border-stone-950 shadow-[0_0_12px_3px_rgb(253,230,138)] rounded-md`}
+      className={`my-6 flex flex-col items-center gap-3 sm:gap-4 ${cardStyle} text-stone-50 dark:text-amber-100  mb-4 px-4 sm:px-8 py-4 border-2 border-stone-950 shadow-[0_0_12px_3px_rgb(253,230,138)] rounded-md`}
       tabIndex={0}
       ref={cardRef}
     >

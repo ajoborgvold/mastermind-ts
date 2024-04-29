@@ -23,13 +23,13 @@ const Rules: FC = () => {
       <main className="flex flex-col items-center gap-8 mt-2 mb-8 p-4 lg:p-6">
         <h1 className="text-2xl sm:text-3xl md:text-4xl text-center tracking-wider">
           How to play a game of<br></br>
-          <span className="inline-block mt-4 text-amber-300 font-bold uppercase tracking-widest">
+          <span className="inline-block mt-4 text-teal-900 dark:text-amber-300 font-bold uppercase tracking-widest">
             Mastermind
           </span>
         </h1>
         <section className="md:w-3/4 lg:w-2/3 xl:w-1/2 flex flex-col items-center gap-12 leading-loose">
-          <div className="flex flex-col gap-4 bg-stone-900 p-4 sm:p-6 rounded">
-            <h2 className="text-amber-300 text-xl sm:text-2xl">
+          <div className="flex flex-col gap-4 bg-stone-50 dark:bg-stone-900 p-4 sm:p-6 rounded">
+            <h2 className="text-teal-800 dark:text-amber-300 text-xl sm:text-2xl">
               Game overview
             </h2>
             <p>
@@ -45,8 +45,8 @@ const Rules: FC = () => {
               always contain exactly four colors.
             </p>
           </div>
-          <div className="flex flex-col gap-4 bg-stone-900 p-4 sm:p-6 rounded">
-            <h2 className="text-amber-300 text-xl sm:text-2xl">
+          <div className="flex flex-col gap-4 bg-stone-50 dark:bg-stone-900 p-4 sm:p-6 rounded">
+            <h2 className="text-teal-800 dark:text-amber-300 text-xl sm:text-2xl">
               Game mechanics
             </h2>
             <p>
@@ -69,7 +69,7 @@ const Rules: FC = () => {
             </p>
             <FeedbackExplained />
             <p>
-              <span className="text-amber-300 font-semibold tracking-wider">
+              <span className="text-teal-800 dark:text-amber-300 font-semibold tracking-wider">
                 Important:
               </span>{" "}
               The order of the feedback pegs does not correspond to the order of

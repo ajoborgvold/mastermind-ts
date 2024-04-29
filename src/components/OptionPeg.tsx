@@ -7,12 +7,12 @@ const OptionPeg: FC = () => {
 
   const colorEl = colorData.map((color, index) => {
     const selectedColorStyle =
-      selectedGuess.color?.name === color.name ? "bg-amber-100 text-stone-950" : ""
+      selectedGuess.color?.name === color.name ? "bg-stone-300 dark:bg-amber-100 dark:text-stone-950" : ""
     
     return (
       <li key={index}>
         <button
-          className={`flex gap-2 items-center p-2 hover:bg-amber-100 focus:bg-amber-100 hover:text-stone-950 focus:text-stone-950 rounded-md ${selectedColorStyle}`}
+          className={`flex gap-2 items-center p-2 hover:bg-stone-300 focus:bg-stone-300 dark:hover:bg-amber-100 dark:focus:bg-amber-100 dark:hover:text-stone-950 dark:focus:text-stone-950 rounded-md ${selectedColorStyle}`}
           onClick={() => selectColor(color.name)}
           aria-label={color.name}
           aria-pressed={selectedGuess.color?.name === color.name}

@@ -13,7 +13,7 @@ const Feedback: FC<FeedbackProps> = ({ data }) => {
         ? "bg-black text-white border-stone-950"
         : item.feedback?.code === 2
         ? "bg-white text-black border-stone-950"
-        : "text-amber-100 border-amber-100"
+        : "bg-stone-200 text-teal-950 border-teal-950 dark:bg-stone-700 dark:text-amber-100 dark:border-amber-100"
 
     const aria =
       item.feedback?.code === 1

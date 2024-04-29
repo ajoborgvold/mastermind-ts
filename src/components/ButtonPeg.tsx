@@ -26,7 +26,7 @@ const ButtonPeg: FC<ButtonPegProps> = ({ data, index }) => {
   return (
     <li key={index}>
       <button
-        className={`flex items-center p-1 sm:p-2 rounded-sm hover:bg-amber-100 focus:bg-amber-100 ${selectedPositionStyle}`}
+        className={`flex items-center p-1 sm:p-2 rounded-sm hover:bg-stone-300 focus:bg-stone-300 focus:text-stone-50 dark:hover:bg-amber-100 dark:focus:bg-amber-100 ${selectedPositionStyle}`}
         onClick={() => handlePegClick(data.name, index)}
         aria-label={ariaLabel}
         aria-pressed={selectedGuess.position === index}
@@ -34,7 +34,11 @@ const ButtonPeg: FC<ButtonPegProps> = ({ data, index }) => {
         ref={index === 0 ? ref : null}
       >
         <div
-          className={`${data.bgColor} ${data.textColor} w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center text-sm sm:text-base font-bold rounded-full border ${data.name !== "?" ? "border-black" : "border-amber-100"}`}
+          className={`${data.bgColor} ${
+            data.textColor
+          } w-8 h-8 sm:w-10 sm:h-10 flex justify-center items-center text-sm sm:text-base font-bold rounded-full border ${
+            data.name !== "?" ? "border-black dark:border-black" : "border-teal-950 dark:border-amber-100"
+          }`}
         >
           {data.name ? data.name[0].toUpperCase() : "?"}
         </div>

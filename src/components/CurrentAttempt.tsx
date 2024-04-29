@@ -13,7 +13,7 @@ const CurrentAttempt: FC = () => {
   } = useContext(GameContext)
 
   const latestGuessEl = (
-    <li className="h-11 sm:h-14 flex items-center gap-2 lg:gap-4 bg-stone-700 px-2 lg:px-6 rounded-md">
+    <li className="h-11 sm:h-14 flex items-center gap-2 lg:gap-4 bg-stone-50 dark:bg-stone-700 px-2 lg:px-6 rounded-md">
       <p
         className="w-6 lg:text-2xl"
         aria-label={`Current attempt. Attempt number ${
