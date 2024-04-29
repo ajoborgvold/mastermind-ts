@@ -9,16 +9,16 @@ const Home: FC = () => {
 
   return (
     <main className="h-full flex-1 flex flex-col justify-center items-center gap-10 lg:gap-20">
-      <h1 className="text-amber-300 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-widest uppercase">
+      <h1 className="text-teal-900 dark:text-amber-300 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-widest uppercase">
         Mastermind
       </h1>
       <div className="flex flex-col items-center gap-4">
         <p className="sm:text-lg md:text-xl">Can you crack the secret code?</p>
-        <div className="flex gap-4 bg-stone-700 text-sm md:text-base py-3 px-6 rounded-md">
+        <div className="flex gap-4 bg-stone-50 text-sm md:text-base py-3 px-6 rounded-md">
           {secretCodeArray.map((color, index) => (
             <div
               key={index}
-              className="w-7 h-7 md:w-10 md:h-10 flex justify-center items-center border border-amber-100 rounded-full"
+              className="w-7 h-7 md:w-10 md:h-10 flex justify-center items-center border border-teal-950 rounded-full"
             >
               {color.name}
             </div>

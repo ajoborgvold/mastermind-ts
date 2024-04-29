@@ -38,7 +38,7 @@ const Game: FC = () => {
             />
           </>
         )}
-        <div className="flex flex-col items-center gap-10">
+        <div className="relative flex flex-col items-center gap-10">
           <GuessesContainer />
         </div>
       </main>

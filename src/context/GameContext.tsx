@@ -13,7 +13,9 @@ const defaultContext: ContextData = {
   latestGuessArray: [],
   allGuessesArray: [],
   hasPlayerWon: false,
-  startNewGame: () => {},
+  startNewGame: () => { },
+  displayUserMessage: false,
+  setDisplayUserMessage: () => {}
 }
 
 const GameContext = createContext<ContextData>(defaultContext)
@@ -31,12 +33,18 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }>({ color: null, position: null })
   const [allGuessesArray, setAllGuessesArray] = useState<ColorData[][]>([])
   const [hasPlayerWon, setHasPlayerWon] = useState(false)
+  const [displayUserMessage, setDisplayUserMessage] = useState(false)
   
   useEffect(() => {
     if (selectedGuess.color !== null && selectedGuess.position !== null) {
-      const updatedGuessArray = [...latestGuessArray]
-      updatedGuessArray[selectedGuess.position] = selectedGuess.color
-      setLatestGuessArray(updatedGuessArray)
+      setLatestGuessArray(prevArray => {
+        const updatedArray = [...prevArray]
+        if (selectedGuess.color !== null && selectedGuess.position !== null) {
+          updatedArray[selectedGuess.position] = selectedGuess.color
+        }
+        return updatedArray
+      })
+
       setSelectedGuess({ color: null, position: null })
     }
   }, [selectedGuess])
@@ -71,6 +79,8 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }
 
   function selectColor(colorName: string) {
+    setDisplayUserMessage(false)
+
     const targetColor = colorData.find((color) => color.name === colorName)
     const allColorsSelected = latestGuessArray.every(
       (color) => color.name !== "?"
@@ -82,11 +92,14 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }
 
   function handlePegClick(colorName: string, index: number) {
-    const updatedGuessArray = [...latestGuessArray]
+    setDisplayUserMessage(false)
 
     if (colorName !== "?") {
-      updatedGuessArray[index] = emptyPeg
-      setLatestGuessArray(updatedGuessArray)
+      setLatestGuessArray(prevArray => {
+        const updatedArray = [...prevArray]
+        updatedArray[index] = emptyPeg
+        return updatedArray
+      })
     } else if (selectedGuess.position === index) {
       setSelectedGuess(prev => ({...prev, position: -1}))
     } else {
@@ -95,18 +108,15 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   }
 
   function deleteLatestGuess() {
+    setDisplayUserMessage(false)
     setLatestGuessArray(initialGuessArray)
   }
 
   function checkLatestGuess() {
     const isAttemptComplete = latestGuessArray.every(color => color.name !== "?")
 
-    /**
-    * TODO: Create user message, telling the user to select four colors to activate the button.
-    **/
-    
     if (!isAttemptComplete) {
-      console.log("Please select four colors.")
+      setDisplayUserMessage(true)
     }
 
     if (isAttemptComplete) {
@@ -183,6 +193,8 @@ function GameContextProvider({ children }: { children: ReactNode }) {
         allGuessesArray,
         hasPlayerWon,
         startNewGame,
+        displayUserMessage,
+        setDisplayUserMessage
       }}
     >
       {children}

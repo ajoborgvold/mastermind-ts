@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode } from "react"
+import { Dispatch, MouseEventHandler, ReactNode, SetStateAction } from "react"
 
 export interface ColorData {
   name: string
@@ -22,6 +22,8 @@ export interface ContextData {
   allGuessesArray: ColorData[][]
   hasPlayerWon: boolean
   startNewGame: () => void
+  displayUserMessage: boolean
+  setDisplayUserMessage: Dispatch<SetStateAction<boolean>>
 }
 
 export interface HeaderProps {

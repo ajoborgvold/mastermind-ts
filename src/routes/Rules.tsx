@@ -1,4 +1,4 @@
-import { FC, useContext } from "react"
+import { FC, useContext, useEffect } from "react"
 import { GameContext } from "../context/GameContext"
 import FeedbackExplained from "../components/FeedbackExplained"
 import LinkLarge from "../components/LinkLarge"
@@ -6,7 +6,11 @@ import LinkSmall from "../components/LinkSmall"
 import Header from "../components/Header"
 
 const Rules: FC = () => {
-  const { codeArray, startNewGame } = useContext(GameContext)
+  const { codeArray, startNewGame, setDisplayUserMessage } = useContext(GameContext)
+
+  useEffect(() => {
+    setDisplayUserMessage(false)
+  }, [setDisplayUserMessage])
 
   return (
     <div className="flex-1 flex flex-col">
