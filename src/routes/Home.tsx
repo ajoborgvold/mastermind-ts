@@ -14,11 +14,11 @@ const Home: FC = () => {
       </h1>
       <div className="flex flex-col items-center gap-4">
         <p className="sm:text-lg md:text-xl">Can you crack the secret code?</p>
-        <div className="flex gap-4 bg-stone-50 text-sm md:text-base py-3 px-6 rounded-md">
+        <div className="flex gap-4 bg-stone-50 dark:bg-stone-700 text-sm md:text-base py-3 px-6 rounded-md">
           {secretCodeArray.map((color, index) => (
             <div
               key={index}
-              className="w-7 h-7 md:w-10 md:h-10 flex justify-center items-center border border-teal-950 rounded-full"
+              className="w-7 h-7 md:w-10 md:h-10 flex justify-center items-center border border-teal-950 dark:border-amber-100 rounded-full"
             >
               {color.name}
             </div>
