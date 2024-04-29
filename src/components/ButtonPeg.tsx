@@ -1,8 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { FC, useContext, useEffect, useRef, useState } from "react"
 import { GameContext } from "../context/GameContext"
 import { ButtonPegProps } from "../interfaces/interfaces"
 
-export default function ButtonPeg({ data, index }: ButtonPegProps): JSX.Element {
+const ButtonPeg: FC<ButtonPegProps> = ({ data, index }) => {
   const { handlePegClick, selectedGuess, allGuessesArray } = useContext(GameContext)
   const [ariaLabel, setAriaLabel] = useState<string>("")
   const ref = useRef<HTMLButtonElement>(null)
@@ -42,3 +42,5 @@ export default function ButtonPeg({ data, index }: ButtonPegProps): JSX.Element 
     </li>
   )
 }
+
+export default ButtonPeg

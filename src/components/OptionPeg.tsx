@@ -1,8 +1,8 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { colorData } from "../data/colorData"
 import { GameContext } from "../context/GameContext"
 
-export default function OptionPeg(): JSX.Element {
+const OptionPeg: FC = () => {
   const { selectColor, selectedGuess } = useContext(GameContext)
 
   const colorEl = colorData.map((color, index) => {
@@ -35,3 +35,5 @@ export default function OptionPeg(): JSX.Element {
     </ul>
   )
 }
+
+export default OptionPeg

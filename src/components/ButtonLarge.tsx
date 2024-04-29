@@ -1,7 +1,7 @@
+import { FC } from "react";
 import { ButtonLargeProps } from "../interfaces/interfaces";
 
-export default function ButtonLarge({ handleClick, textContent}: ButtonLargeProps): JSX.Element {
-
+const ButtonLarge: FC<ButtonLargeProps> = ({ handleClick, textContent }) => {
   return (
     <button
       onClick={handleClick}
@@ -11,3 +11,5 @@ export default function ButtonLarge({ handleClick, textContent}: ButtonLargeProp
     </button>
   )
 }
+
+export default ButtonLarge

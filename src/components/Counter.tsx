@@ -1,7 +1,7 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 
-export default function Counter(): JSX.Element {
+const Counter: FC = () => {
   const { allGuessesArray, isGameOn } = useContext(GameContext)
 
   return (
@@ -15,3 +15,5 @@ export default function Counter(): JSX.Element {
     </div>
   )
 }
+
+export default Counter

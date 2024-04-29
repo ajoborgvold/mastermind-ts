@@ -1,6 +1,6 @@
-import { Dispatch, MouseEventHandler, SetStateAction, ReactNode } from "react"
+import { MouseEventHandler, ReactNode } from "react"
 
-interface ColorData {
+export interface ColorData {
   name: string
   bgColor: string
   textColor: string
@@ -10,9 +10,8 @@ interface ColorData {
   }
 }
 
-interface ContextData {
+export interface ContextData {
   isGameOn: boolean
-  setIsGameOn: Dispatch<SetStateAction<boolean>>
   codeArray: ColorData[]
   selectColor: (colorName: string) => void
   selectedGuess: {color: (ColorData | null), position: (number | null)}
@@ -25,42 +24,38 @@ interface ContextData {
   startNewGame: () => void
 }
 
-interface HeaderProps {
+export interface HeaderProps {
   children: ReactNode
   flexStyle: string
 }
 
-interface ResultCardProps {
-  cardStyle: string
-  p1: string
-  p2: string
-}
-
-interface ColorPegProps {
+export interface ColorPegProps {
   data: ColorData[]
   pegStyle?: string
 }
 
-interface ButtonLargeProps {
+export interface ButtonLargeProps {
   handleClick: MouseEventHandler<HTMLButtonElement>
   textContent: string
 }
 
-interface ButtonSmallProps {
+export interface ButtonSmallProps {
   handleClick: MouseEventHandler<HTMLButtonElement>
   aria: string
   children: ReactNode
 }
 
-interface ButtonPegProps {
+export interface ButtonPegProps {
   data: ColorData
   index: number
 }
 
-interface LinkProps {
+export interface LinkProps {
   textContent: string
   path: string
   handleClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-export type { ColorData, ContextData, HeaderProps, ResultCardProps, ColorPegProps, ButtonLargeProps, ButtonSmallProps, ButtonPegProps, LinkProps }
+export interface FeedbackProps {
+  data: ColorData[]
+}

@@ -1,6 +1,7 @@
+import { FC } from "react"
 import { ColorPegProps } from "../interfaces/interfaces"
 
-export default function ColorPeg({ data, pegStyle }: ColorPegProps): JSX.Element {
+const ColorPeg: FC<ColorPegProps> = ({ data, pegStyle }) => {
   const colorEl = data.map((color, index) => {
     return (
       <li
@@ -19,3 +20,5 @@ export default function ColorPeg({ data, pegStyle }: ColorPegProps): JSX.Element
 
   return <ul className="flex gap-1 sm:gap-2">{colorEl}</ul>
 }
+
+export default ColorPeg

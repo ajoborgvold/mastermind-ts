@@ -1,4 +1,6 @@
-export default function FeedbackExplained(): JSX.Element {
+import { FC } from "react"
+
+const FeedbackExplained: FC = () => {
   return (
     <div className="self-center flex flex-col gap-1 bg-stone-700 p-4 sm:px-8 rounded-lg">
       <p className="mb-2 font-semibold tracking-wide">Feedback explained:</p>
@@ -23,3 +25,5 @@ export default function FeedbackExplained(): JSX.Element {
     </div>
   )
 }
+
+export default FeedbackExplained

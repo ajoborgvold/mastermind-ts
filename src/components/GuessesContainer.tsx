@@ -1,9 +1,9 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import PreviousAttempts from "./PreviousAttempts"
 import CurrentAttempt from "./CurrentAttempt"
 
-export default function GuessesContainer(): JSX.Element {
+const GuessesContainer: FC = () => {
   const { allGuessesArray, isGameOn } = useContext(GameContext)
 
   return (
@@ -13,3 +13,5 @@ export default function GuessesContainer(): JSX.Element {
     </ul>
   )
 }
+
+export default GuessesContainer

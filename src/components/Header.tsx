@@ -1,9 +1,12 @@
+import { FC } from "react";
 import { HeaderProps } from "../interfaces/interfaces";
 
-export default function Header({children, flexStyle}: HeaderProps): JSX.Element {
+const Header: FC<HeaderProps> = ({children, flexStyle}) => {
   return (
     <header className={`flex p-2 sm:p-4 ${flexStyle}`}>
       {children}
     </header>
   )
 }
+
+export default Header

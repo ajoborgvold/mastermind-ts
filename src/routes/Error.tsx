@@ -1,6 +1,7 @@
+import { FC } from "react"
 import NavigationLink from "../components/LinkLarge"
 
-export default function Error(): JSX.Element {
+const Error: FC = () => {
   return (
     <main className="w-full h-full flex-1 flex flex-col justify-center items-center gap-16 p-4 lg:p-6">
       <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl tracking-wider">
@@ -10,3 +11,5 @@ export default function Error(): JSX.Element {
     </main>
   )
 }
+
+export default Error

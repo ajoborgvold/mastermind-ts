@@ -1,9 +1,9 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import { emptyPeg } from "../data/colorData"
 import LinkLarge from "../components/LinkLarge"
 
-export default function Home(): JSX.Element {
+const Home: FC = () => {
   const { startNewGame } = useContext(GameContext)
   const secretCodeArray = Array(4).fill(emptyPeg)
 
@@ -37,3 +37,5 @@ export default function Home(): JSX.Element {
     </main>
   )
 }
+
+export default Home

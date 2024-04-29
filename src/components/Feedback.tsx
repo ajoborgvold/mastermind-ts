@@ -1,6 +1,7 @@
-import { ColorData } from "../interfaces/interfaces"
+import { FC } from "react"
+import { FeedbackProps } from "../interfaces/interfaces"
 
-export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
+const Feedback: FC<FeedbackProps> = ({ data }) => {
   const sortedData = [...data].sort((a, b) => (a.feedback?.code ?? 0) - (b.feedback?.code ?? 0))
 
   const feedbackEl = sortedData.map((item, index) => {
@@ -34,3 +35,5 @@ export default function Feedback({ data }: { data: ColorData[]}): JSX.Element {
 
   return <ul className="grid grid-cols-2 gap-y-1 sm:gap-1">{feedbackEl}</ul>
 }
+
+export default Feedback

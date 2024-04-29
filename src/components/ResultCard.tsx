@@ -1,18 +1,20 @@
-import { useContext, useEffect, useRef } from "react"
+import { FC, useContext, useEffect, useRef } from "react"
 import { GameContext } from "../context/GameContext"
 import ColorPeg from "./ColorPeg"
-import { ResultCardProps } from "../interfaces/interfaces"
 
-
-export default function ResultCard({cardStyle, p1, p2}: ResultCardProps): JSX.Element {
+const ResultCard: FC = () => {
   const cardRef = useRef<HTMLDivElement>(null)
-  const { codeArray } = useContext(GameContext)
+  const { hasPlayerWon, codeArray, allGuessesArray } = useContext(GameContext)
 
   useEffect(() => {
     if (cardRef.current) {
       cardRef.current.focus()
     }
   }, [])
+
+  const cardStyle = hasPlayerWon ? "bg-teal-800" : "bg-rose-900"
+  const p1 = hasPlayerWon ? "Congratulations!" : "Too bad!"
+  const p2 = hasPlayerWon ? `You cracked the code in ${allGuessesArray.length} attempts!` : "You failed to crack this code:"
 
   return (
     <div
@@ -29,3 +31,5 @@ export default function ResultCard({cardStyle, p1, p2}: ResultCardProps): JSX.El
     </div>
   )
 }
+
+export default ResultCard

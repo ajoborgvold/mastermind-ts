@@ -1,7 +1,10 @@
+import { FC } from "react";
 import { Outlet } from "react-router-dom";
 
-export default function Layout(): JSX.Element {
+const Layout: FC = () => {
   return (
     <Outlet />
   )
 }
+
+export default Layout

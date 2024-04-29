@@ -2,9 +2,8 @@ import { ReactNode, createContext, useEffect, useState } from "react"
 import { colorData, emptyPeg } from "../data/colorData"
 import { ColorData, ContextData } from "../interfaces/interfaces"
 
-const GameContext = createContext<ContextData>({
+const defaultContext: ContextData = {
   isGameOn: false,
-  setIsGameOn: () => {},
   codeArray: [],
   selectColor: () => {},
   selectedGuess: { color: null, position: null },
@@ -15,7 +14,9 @@ const GameContext = createContext<ContextData>({
   allGuessesArray: [],
   hasPlayerWon: false,
   startNewGame: () => {},
-})
+}
+
+const GameContext = createContext<ContextData>(defaultContext)
 
 function GameContextProvider({ children }: { children: ReactNode }) {
   const initialGuessArray = Array(4).fill(emptyPeg)
@@ -103,6 +104,7 @@ function GameContextProvider({ children }: { children: ReactNode }) {
     /**
     * TODO: Create user message, telling the user to select four colors to activate the button.
     **/
+    
     if (!isAttemptComplete) {
       console.log("Please select four colors.")
     }
@@ -171,7 +173,6 @@ function GameContextProvider({ children }: { children: ReactNode }) {
     <GameContext.Provider
       value={{
         isGameOn,
-        setIsGameOn,
         codeArray,
         selectColor,
         selectedGuess,

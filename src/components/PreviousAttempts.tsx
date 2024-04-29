@@ -1,11 +1,10 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import ColorPeg from "./ColorPeg"
 import Feedback from "./Feedback"
 
-export default function PreviousAttempts(): JSX.Element {
+const PreviousAttempts: FC = () => {
   const { allGuessesArray, isGameOn } = useContext(GameContext)
-
   
   const allGuessesEl = allGuessesArray.map((round, index) => {
     const lastAttempt = !isGameOn && allGuessesArray.length
@@ -36,3 +35,5 @@ export default function PreviousAttempts(): JSX.Element {
 
   return <>{allGuessesEl}</>
 }
+
+export default PreviousAttempts

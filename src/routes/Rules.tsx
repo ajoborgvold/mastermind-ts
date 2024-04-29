@@ -1,11 +1,11 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import FeedbackExplained from "../components/FeedbackExplained"
 import LinkLarge from "../components/LinkLarge"
 import LinkSmall from "../components/LinkSmall"
 import Header from "../components/Header"
 
-export default function Rules(): JSX.Element {
+const Rules: FC = () => {
   const { codeArray, startNewGame } = useContext(GameContext)
 
   return (
@@ -91,3 +91,5 @@ export default function Rules(): JSX.Element {
     </div>
   )
 }
+
+export default Rules

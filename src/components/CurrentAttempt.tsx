@@ -1,10 +1,10 @@
-import { useContext } from "react"
+import { FC, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import ButtonSmall from "./ButtonSmall"
 import ButtonPeg from "./ButtonPeg"
 import { FaCheck, FaDeleteLeft } from "react-icons/fa6"
 
-export default function CurrentAttempt(): JSX.Element {
+const CurrentAttempt: FC = () => {
   const { allGuessesArray, latestGuessArray, deleteLatestGuess, checkLatestGuess } = useContext(GameContext)
 
   const latestGuessEl = (
@@ -33,3 +33,5 @@ export default function CurrentAttempt(): JSX.Element {
 
   return <>{latestGuessEl}</>
 }
+
+export default CurrentAttempt
