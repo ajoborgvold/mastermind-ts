@@ -8,22 +8,15 @@ const GuessesContainer: FC = () => {
     allGuessesArray,
     isGameOn,
     displayUserMessage,
-    setDisplayUserMessage,
   } = useContext(GameContext)
 
   const messageRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     if (displayUserMessage && messageRef.current) {
-      const timer = setTimeout(() => {
-        setDisplayUserMessage(false)
-        messageRef.current?.blur()
-      }, 3000)
       messageRef.current.focus()
-
-      return () => clearTimeout(timer)
     }
-  })
+  }, [displayUserMessage])
 
   return (
     <>
