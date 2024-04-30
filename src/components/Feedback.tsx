@@ -10,10 +10,10 @@ const Feedback: FC<FeedbackProps> = ({ data }) => {
 
     const style =
       item.feedback?.code === 1
-        ? "bg-black text-white border-stone-950"
+        ? "bg-black text-white border-black"
         : item.feedback?.code === 2
-        ? "bg-white text-black border-stone-950"
-        : "bg-stone-200 text-teal-950 border-teal-950 dark:bg-stone-700 dark:text-amber-100 dark:border-amber-100"
+        ? "bg-white text-black border-black dark:border-white"
+        : "bg-stone-200 text-stone-200 border-teal-950 dark:bg-stone-700 dark:text-stone-700 dark:border-amber-100"
 
     const aria =
       item.feedback?.code === 1

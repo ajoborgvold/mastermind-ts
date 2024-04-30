@@ -9,7 +9,7 @@ const Home: FC = () => {
 
   return (
     <main className="h-full flex-1 flex flex-col justify-center items-center gap-10 lg:gap-20">
-      <h1 className="text-teal-900 dark:text-amber-300 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-widest uppercase">
+      <h1 className="text-sky-800 dark:text-amber-300 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-widest uppercase">
         Mastermind
       </h1>
       <div className="flex flex-col items-center gap-4">

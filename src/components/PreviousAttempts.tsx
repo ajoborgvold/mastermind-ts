@@ -8,7 +8,10 @@ const PreviousAttempts: FC = () => {
   
   const allGuessesEl = allGuessesArray.map((round, index) => {
     const lastAttempt = !isGameOn && allGuessesArray.length
-    const attemptStyle = index + allGuessesArray.length === lastAttempt ? "my-6 shadow-[0_0_8px_2px_rgb(253,230,138)]" : ""
+    const attemptStyle =
+      index + allGuessesArray.length === lastAttempt
+        ? "my-6 shadow-[0_0_12px_3px_rgb(8,47,73)] dark:shadow-[0_0_8px_2px_rgb(253,230,138)]"
+        : ""
 
     return (
       <li

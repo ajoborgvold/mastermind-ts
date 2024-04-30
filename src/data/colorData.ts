@@ -35,8 +35,8 @@ const colorData: ColorData[] = [
 
 const emptyPeg = {
   name: "?",
-  bgColor: "bg-stone-200 dark:bg-stone-700",
-  textColor: "text-teal-950 dark:text-amber-100",
+  bgColor: "bg-stone-50 dark:bg-stone-700",
+  textColor: "text-sky-950 dark:text-amber-100",
 }
 
 export { colorData, emptyPeg }

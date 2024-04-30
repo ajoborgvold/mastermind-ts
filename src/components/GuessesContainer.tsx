@@ -29,7 +29,7 @@ const GuessesContainer: FC = () => {
     <>
       {displayUserMessage && (
         <p
-          className="absolute -top-10 py-1 px-4 border border-amber-100 rounded-md shadow-[0_0_2px_1px_rgb(253,230,138)]"
+          className="absolute -top-10 py-1 px-4 border border-sky-950 dark:border-amber-100 rounded-md shadow-[0_0_2px_1px_rgb(8,47,73)] dark:shadow-[0_0_2px_1px_rgb(253,230,138)]"
           ref={messageRef}
         >
           Please select four colors.
