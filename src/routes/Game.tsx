@@ -15,6 +15,10 @@ const Game: FC = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    document.title = "Mastermind | Game"
+  }, [])
+
+  useEffect(() => {
     if (!codeArray.length) {
       navigate("/")
     }

@@ -1,4 +1,4 @@
-import { FC, useContext } from "react"
+import { FC, useContext, useEffect } from "react"
 import { GameContext } from "../context/GameContext"
 import { emptyPeg } from "../data/colorData"
 import LinkLarge from "../components/LinkLarge"
@@ -6,6 +6,10 @@ import LinkLarge from "../components/LinkLarge"
 const Home: FC = () => {
   const { startNewGame } = useContext(GameContext)
   const secretCodeArray = Array(4).fill(emptyPeg)
+
+  useEffect(() => {
+    document.title = "Mastermind | Home"
+  }, [])
 
   return (
     <main className="h-full flex-1 flex flex-col justify-center items-center gap-10 lg:gap-20">

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://mastermind-v2-ajo-b.netlify.app/sitemap.xml

@@ -36,6 +36,21 @@ function GameContextProvider({ children }: { children: ReactNode }) {
   const [displayUserMessage, setDisplayUserMessage] = useState(false)
   
   useEffect(() => {
+    const mediaQuery = "(prefers-color-scheme: dark)"
+    const mql = window.matchMedia(mediaQuery)
+    
+    if (mql.matches) {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#0c0a09")
+      } else {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#e7e5e4")
+    }
+  }, [])
+
+  useEffect(() => {
     if (selectedGuess.color !== null && selectedGuess.position !== null) {
       setLatestGuessArray(prevArray => {
         const updatedArray = [...prevArray]

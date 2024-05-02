@@ -9,6 +9,10 @@ const Rules: FC = () => {
   const { codeArray, startNewGame, setDisplayUserMessage } = useContext(GameContext)
 
   useEffect(() => {
+    document.title = "Mastermind | How to play"
+  }, [])
+
+  useEffect(() => {
     setDisplayUserMessage(false)
   }, [setDisplayUserMessage])
 
