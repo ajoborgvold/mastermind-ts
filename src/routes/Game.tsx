@@ -31,6 +31,7 @@ const Game: FC = () => {
         <LinkSmall textContent="How to play" path="/rules" />
       </Header>
       <main className="my-6 flex flex-col items-center gap-8 p-4 lg:p-6">
+        <h1 className="sr-only">Play Mastermind game</h1>
         {isGameOn ? (
           <ColorOptions />
         ) : (

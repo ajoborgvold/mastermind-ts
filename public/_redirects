@@ -1,2 +1,3 @@
 /* /index.html 200
-/robots.txt /robots.txt 200
+/robots.txt /public/robots.txt 200
+/site.webmanifest /public/site.webmanifest 200
