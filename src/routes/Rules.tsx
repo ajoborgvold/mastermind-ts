@@ -42,9 +42,7 @@ const Rules: FC = () => {
               Game overview
             </h2>
             <p>
-              When you start the game, the computer will generate a random code
-              consisting of four colors. Your job is to crack this code within
-              12 attempts.
+              When you start the game, a random code consisting of four colors will be generated. Your job is to crack this code within 12 attempts.
             </p>
             <p>
               There are six different colors in this game and the secret code
