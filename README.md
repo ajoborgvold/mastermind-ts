@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Mastermind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## In this document:
+1. [App live site](#app-live-site)
+2. [App screenshots](#screenshots)
+3. [Technologies used](#technologies-used)
+4. [Accessibility considerations](#accessibility-considerations)
+5. [Stumbling and learning points](#stumbling-and-learning-points)
+6. [Future additions](#future-additions)
 
-Currently, two official plugins are available:
+## App live site
+[Mastermind game live on Netlify](https://mastermind-v2-ajo-b.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## App screenshots
+![Mastermind home page](/src/assets/mastermind-start.png)
+*Home page with two options: start the game, or learn how to play.*
 
-## Expanding the ESLint configuration
+![Mastermind game on. Four attempts have been submitted.](/src/assets/unit-conversion-route.png)
+*The game is on and four attempts have been submitted. In the top left corner, a counter shows the number of remaining attempts. To the right of each submitted attempt, the user gets feedback on the selected colors.*
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Mastermind game won. The user is congratulated for cracking the code in six attempts.](/src/assets/time-calculation-route.png)
+*The user won the game by cracking the color code in six attempts. If the code is not cracked within 12 attempts, it's game over for the user.*
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies used
+1. [React.js](https://react.dev/)
+2. [React Router](https://reactrouter.com/)
+3. [TypeScript](https://www.typescriptlang.org/)
+4. [Tailwind CSS](https://v2.tailwindcss.com/)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Accessibility considerations
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
