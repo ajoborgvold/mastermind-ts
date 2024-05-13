@@ -16,7 +16,7 @@ const PreviousAttempts: FC = () => {
     return (
       <li
         key={index}
-        className={`h-11 sm:h-14 flex items-center gap-2 lg:gap-4 bg-stone-50 dark:bg-stone-700 px-2 lg:px-6 rounded-md ${attemptStyle}`}
+        className={`flex items-center gap-2 lg:gap-4 bg-stone-50 dark:bg-stone-700 px-2 lg:px-6 rounded-md ${attemptStyle}`}
         tabIndex={0}
       >
         <p

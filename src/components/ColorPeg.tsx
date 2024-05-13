@@ -6,7 +6,7 @@ const ColorPeg: FC<ColorPegProps> = ({ data, pegStyle }) => {
     return (
       <li
         key={index}
-        className="flex items-center p-1 sm:p-2 rounded-sm"
+        className="flex items-center p-1 sm:p-2 border-x border-stone-50 dark:border-stone-700"
         aria-label={`Position ${index + 1}: ${color.name}.`}
       >
         <div

@@ -13,7 +13,7 @@ const CurrentAttempt: FC = () => {
   } = useContext(GameContext)
 
   const latestGuessEl = (
-    <li className="h-11 sm:h-14 flex items-center gap-2 lg:gap-4 bg-stone-50 dark:bg-stone-700 px-2 lg:px-6 rounded-md">
+    <li className=" flex items-center gap-2 lg:gap-4 bg-stone-50 dark:bg-stone-700 px-2 lg:px-6 rounded-md">
       <p
         className="w-6 lg:text-2xl"
         aria-label={`Current attempt. Attempt number ${
@@ -29,16 +29,14 @@ const CurrentAttempt: FC = () => {
           ))}
         </ul>
       </div>
-      <div className="ml-auto flex gap-5 sm:gap-4">
+      <div className="ml-auto flex gap-3 sm:gap-4">
         <ButtonSmall
           handleClick={deleteLatestGuess}
           aria="Delete all colors in current guess."
         >
           <FaDeleteLeft />
         </ButtonSmall>
-        <ButtonSmall
-          handleClick={checkLatestGuess}
-          aria="Submit your guess.">
+        <ButtonSmall handleClick={checkLatestGuess} aria="Submit your guess.">
           <FaCheck />
         </ButtonSmall>
       </div>
