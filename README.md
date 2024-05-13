@@ -12,7 +12,7 @@
 [Mastermind game live on Netlify](https://mastermind-v2-ajo-b.netlify.app/)
 
 ## App screenshots
-![Mastermind home page](/src/assets/mastermind-start.png){width=300px}
+![Mastermind home page]() <img src="/src/assets/mastermind-start.png" width=300px>
 *Home page with two options: start the game, or learn how to play.*
 
 ![Mastermind game on. Four attempts have been submitted.](/src/assets/mastermind-gameon.png){width=300px}
