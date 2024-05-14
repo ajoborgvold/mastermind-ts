@@ -14,13 +14,13 @@ This app is a recreation of the board game for one single player. The secret col
 [Mastermind game live on Netlify](https://mastermind-v2-ajo-b.netlify.app/)
 
 ## App screenshots
-![]() <img src="/src/assets/mastermind-start.png" width=300px alt="Mastermind home page.">  
+![]() <img src="/src/assets/mastermind-start.png" height=600px alt="Mastermind home page.">  
 *Home page with two options: start the game, or learn how to play.*
 
-![]() <img src="/src/assets/mastermind-gameon.png" width=300px alt="Mastermind game on. Four attempts have been submitted.">  
+![]() <img src="/src/assets/mastermind-game-on.png" height=600px alt="Mastermind game on. Four attempts have been submitted.">  
 *The game is on and four attempts have been submitted. In the top left corner, a counter shows the number of remaining attempts. To the right of each submitted attempt, the user gets feedback on the selected colors.*
 
-![]() <img src="/src/assets/mastermind-gamewon.png" width=300px alt="Mastermind game won. The user is congratulated for cracking the code in six attempts.">  
+![]() <img src="/src/assets/mastermind-game-won.png" height=600px alt="Mastermind game won. The user is congratulated for cracking the code in six attempts.">  
 *The user won the game by cracking the color code in six attempts. If the code is not cracked within 12 attempts, it's game over for the user.*
 
 ## Technologies used
