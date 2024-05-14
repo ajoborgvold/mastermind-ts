@@ -30,7 +30,10 @@ This app is a recreation of the board game for one single player. The secret col
 4. [Tailwind CSS](https://v2.tailwindcss.com/)
 
 ## Accessibility considerations
-A color based code cracking game like Mastermind is inherently inaccessible to many users. All information about the current as well as and the previous attempts is higly important if you are to crack the code. In this app, I put a lot of work into making the game accessible.
+A color based code cracking game like Mastermind is inherently inaccessible to many users. All information about the current as well as the previous attempts is higly important if you are to crack the code. In this app, I put a lot of work into making the game accessible.
+
+### Written information on all colors
+Relying solely on colors when conveying important information to the user is an absolute no-go. Therefore, all colors in this game are displayed with additional written information. On all color pegs, the first letter of the color name (e.g. R for red) is shown in the middle of the color. Additionally, the color options from which the user selects and adds colors to the current attempt are displayed with the full name of the color to the right of it. Similarly, the feedback provided on each attempt (in the board game merely black and white color pegs) is a combination of colors and letters.
 
 ### Dynamic aria-labels on current attempt
 All colors that the user selects and adds to the current attempt gets dynamically updating aria-labels, informing assistive technologies of the color name (e.g. blue) and the color's position (e.g. 2). If the user decides to delete a color from the attempt, the changed value of the given position is set as the new aria-label. Thus, users of assistive technologies continuously get all information needed to successfully select and position colors.
@@ -41,3 +44,6 @@ Every previous attempt has an aria-label informating about attempt number, selec
 ### Aria-pressed on clickable colors and positions
 There are six colors to chose from when adding colors to the current attempt and four positions to place a color in. Colors are added to the attempt by selecting a color and a position. This allows the user to place a given color at any empty position. To ensure accessibily, all color options and all positions have an aria-pressed attribute to let the user know whether a color/position is selected or not.
 
+### Aria-live and useRef
+To ensure that users of assistive technologies receive information about changes in the UI, both the `aria-live` attribute and the React hook `useRef` are used. Setting `aria-live` to `polite` on the positions in the current attempt makes screen readers read aloud the updated aria-label at the next graceful opportunity.  
+When the game is over, i.e. the user either cracked the code or ran out of attempts to do so, a result card gets rendered. The `useRef` hook is used to create a `cardRef` and add it as the value of a `ref` attribute set on the card. In a `useEffect`, the `focus()` method is used on the `cardRef` to add focus to the card and thus ensure that screen readers will read aloud the card when it is rendered.

@@ -1,12 +1,12 @@
 import { FC } from "react"
 import { ColorPegProps } from "../interfaces/interfaces"
 
-const ColorPeg: FC<ColorPegProps> = ({ data, pegStyle }) => {
+const ColorPeg: FC<ColorPegProps> = ({ data, listStyle, pegStyle }) => {
   const colorEl = data.map((color, index) => {
     return (
       <li
         key={index}
-        className="flex items-center p-1 sm:p-2 border-x border-stone-50 dark:border-stone-700"
+        className={`flex items-center p-1 sm:p-2 ${listStyle}`}
         aria-label={`Position ${index + 1}: ${color.name}.`}
       >
         <div

@@ -27,7 +27,7 @@ const ButtonPeg: FC<ButtonPegProps> = ({ data, index }) => {
   return (
     <li key={index}>
       <button
-        className={`flex items-center p-1 sm:p-2 hover:bg-stone-300 focus:bg-stone-300 focus:text-stone-50 dark:hover:bg-amber-100 dark:focus:bg-amber-100 ${selectedPositionStyle} border-x border-stone-50 dark:border-stone-700 hover:border-stone-500 dark:hover:border-amber-100`}
+        className={`flex items-center p-1 sm:p-2 hover:bg-stone-300 focus:bg-stone-300 focus:text-stone-50 dark:hover:bg-amber-100 dark:focus:bg-amber-100 border-x border-stone-50 hover:border-stone-500 dark:border-none ${selectedPositionStyle}`}
         onClick={() => handlePegClick(data.name, index)}
         aria-label={ariaLabel}
         aria-pressed={selectedGuess.position === index}

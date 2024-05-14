@@ -26,7 +26,10 @@ const PreviousAttempts: FC = () => {
           {allGuessesArray.length - index}
         </p>
         <div>
-          <ColorPeg data={round} />
+          <ColorPeg
+            data={round}
+            listStyle="border-x border-stone-50 dark:border-none"
+          />
         </div>
         <div className="ml-auto w-12">
           <p className="sr-only">Feedback:</p>

@@ -33,6 +33,7 @@ export interface HeaderProps {
 
 export interface ColorPegProps {
   data: ColorData[]
+  listStyle?: string
   pegStyle?: string
 }
 
