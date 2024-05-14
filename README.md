@@ -18,10 +18,10 @@ This app is a recreation of the board game for one single player. The secret col
 *Home page with two options: start the game, or learn how to play.*
 
 ![Mastermind game on. Four attempts have been submitted.](/src/assets/mastermind-game-on.png)
-*The game is on and four attempts have been submitted. In the top left corner, a counter shows the number of remaining attempts. To the right of each submitted attempt, the user gets feedback on the selected colors.*
+*The game is on. Three attempts have been submitted. The current attempt is the fourth. In the top left corner, a counter shows the number of remaining attempts. To the right of each submitted attempt, the user gets feedback on the selected colors.*
 
 ![Mastermind game won. The user is congratulated for cracking the code in six attempts.](/src/assets/mastermind-game-won.png)
-*The user won the game by cracking the color code in six attempts. If the code is not cracked within 12 attempts, it's game over for the user.*
+*The user won the game by cracking the color code in four attempts. The counter in the top left corner now displays the number of attempts used. If the code is not cracked within 12 attempts, it's game over for the user, and instead of "Congratulations!" the result card will read "Too bad!"*
 
 ## Technologies used
 1. [React.js](https://react.dev/)
