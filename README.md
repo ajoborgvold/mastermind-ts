@@ -14,7 +14,7 @@ This app is a recreation of the board game for one single player. The secret col
 [Mastermind game live on Netlify](https://mastermind-v2-ajo-b.netlify.app/)
 
 ## App screenshots
-![]() <img src="/src/assets/mastermind-start.png" alt="Mastermind home page.">  
+![Mastermind home page.](/src/assets/mastermind-start.png)  
 *Home page with two options: start the game, or learn how to play.*
 
 ![]() <img src="/src/assets/mastermind-game-on.png" alt="Mastermind game on. Four attempts have been submitted.">  
