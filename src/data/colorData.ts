@@ -33,7 +33,7 @@ const colorData: ColorData[] = [
   },
 ]
 
-const emptyPeg = {
+const emptyPeg: ColorData = {
   name: "?",
   bgColor: "bg-stone-50 dark:bg-stone-700",
   textColor: "text-sky-950 dark:text-amber-100",
